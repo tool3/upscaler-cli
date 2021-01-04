@@ -1,0 +1,40 @@
+{
+  "name": "clider",
+  "version": "1.0.0",
+  "description": "cli template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'set your tests here'",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tool3/clider.git"
+  },
+  "keywords": [
+    "cli",
+    "template",
+    "npm",
+    "nodejs"
+  ],
+  "author": "Tal Hayut",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tool3/clider/issues"
+  },
+  "homepage": "https://github.com/tool3/clider#readme",
+  "dependencies": {
+    "yargs": "^16.1.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^7.16.0",
+    "husky": "^4.3.0",
+    "mocha": "^8.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
+}
