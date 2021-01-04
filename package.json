@@ -1,15 +1,14 @@
 {
-  "name": "clider",
+  "name": "shellfie-cli",
   "version": "1.0.0",
-  "description": "cli template",
+  "description": "create beautiful terminal screenshots",
   "main": "index.js",
   "scripts": {
-    "test": "echo 'set your tests here'",
-    "lint": "eslint ."
+    "test": "echo 'set your tests here'"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tool3/clider.git"
+    "url": "git+https://github.com/tool3/shellfie-cli.git"
   },
   "keywords": [
     "cli",
@@ -20,21 +19,17 @@
   "author": "Tal Hayut",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tool3/clider/issues"
+    "url": "https://github.com/tool3/shellfie-cli/issues"
   },
-  "homepage": "https://github.com/tool3/clider#readme",
+  "bin": {
+    "shellfie": "index.js"
+  },
+  "homepage": "https://github.com/tool3/shellfie-cli#readme",
   "dependencies": {
+    "shellfie": "^1.1.3",
     "yargs": "^16.1.1"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^7.16.0",
-    "husky": "^4.3.0",
     "mocha": "^8.2.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
   }
 }
