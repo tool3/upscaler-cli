@@ -3,7 +3,7 @@ create beautiful terminal screenshots using formatted string
 
 # usage
 ```bash
-echo "\x1b[32mHello world" | shellfie --width 200
+echo "\x1b[32mHello world" | shellfie -w 200 -h 200
 ```
 or
 ```bash
@@ -12,8 +12,12 @@ shellfie "\x1b[32mHello" "\x1b[33mWORLD"
 
 # useful examples
 ```bash
-yarn test --colors > test.txt
-cat test.txt | shellfie --mode raw
+lolcat --help > help.txt
+cat help.txt | shellfie -m raw
+```
+
+```bash
+shellfie '\x1b[105mSHELLFIE\\x1b[0m🤳' '\x1b[38;5;225mthe easiest way' '\x1b[38;5;213mto create beautiful' '\x1b[38;5;14mCLI screenshots 📸' '\x1b[38;5;199mprogrammatically 🚀' -h 300 -w 400
 ```
 
 # options
