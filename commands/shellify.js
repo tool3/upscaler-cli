@@ -1,5 +1,3 @@
-require('./load').load();
-
 const shellfie = require('shellfie');
 
 async function shellify(argv) {
