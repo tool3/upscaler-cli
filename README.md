@@ -19,6 +19,7 @@ cat help.txt | shellfie -m raw
 ```bash
 shellfie '\x1b[105mSHELLFIE\\x1b[0m🤳' '\x1b[38;5;225mthe easiest way' '\x1b[38;5;213mto create beautiful' '\x1b[38;5;14mCLI screenshots 📸' '\x1b[38;5;199mprogrammatically 🚀' -h 300 -w 400
 ```
+![](https://github.com/tool3/shellfie/blob/master/shellfies/shellfie.png?raw=true)
 
 # options
 
