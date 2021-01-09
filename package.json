@@ -11,10 +11,11 @@
     "url": "git+https://github.com/tool3/shellfie-cli.git"
   },
   "keywords": [
-    "cli",
     "terminal",
     "xterm",
-    "screenshots"
+    "screenshot",
+    "ansi",
+    "cli"
   ],
   "author": "Tal Hayut",
   "license": "MIT",
@@ -26,7 +27,7 @@
   },
   "homepage": "https://github.com/tool3/shellfie-cli#readme",
   "dependencies": {
-    "shellfie": "latest",
+    "shellfie": "^1.2.2",
     "yargs": "^16.1.1"
   },
   "devDependencies": {
