@@ -3,13 +3,14 @@ create beautiful terminal screenshots using formatted string
 
 # usage
 ```bash
-echo "\x1b[32mHello world" | shellfie -w 200 -h 200
+echo "\x1b[34mHello world" | shellfie -w 200 -h 200 -n hello
 ```
+![](https://github.com/tool3/shellfie-cli/blob/master/shellfies/hello.png?raw=true)   
 or
 ```bash
-shellfie "\x1b[32mHello" "\x1b[33mWORLD"
+shellfie "\x1b[36mHello" "\x1b[104mWORLD" -w 200 -h 200 -n world
 ```
-
+![](https://github.com/tool3/shellfie-cli/blob/master/shellfies/world.png?raw=true)   
 # useful examples
 ```bash
 lolcat --help > help.txt
