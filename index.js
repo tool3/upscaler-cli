@@ -8,7 +8,7 @@ yargs
         location: `${process.env.INIT_CWD || process.cwd()}/shellfies`
     })
     .command(
-        '$0',
+        '$0 <string|string..>',
         'create terminal screenshots from ansi string',
         { },
         async argv => {
@@ -32,6 +32,5 @@ yargs
     .option('location', { alias: 'l', type: 'string', desc: 'destination folder', default: './shellfies' })
     .option('puppeteerArgs', { alias: 'p', type: 'array', desc: 'optional puppeteer args', default: ['--no-sandbox', '--disable-setuid-sandbox']})
     .help()
-    .check((argv) => argv._.length ? true: false)
     .wrap(90)
     .argv
