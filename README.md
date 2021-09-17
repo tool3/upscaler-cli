@@ -3,11 +3,11 @@ create beautiful terminal screenshots using formatted string
 
 # usage
 ```bash
-echo "\x1b[32mHello world" | shellfie -w 200 -h 200
+echo "\x1b[32mHello world" | shellfie -w 200 -h 200 -n hello
 ```
 or
 ```bash
-shellfie "\x1b[32mHello" "\x1b[33mWORLD"
+shellfie "\x1b[32mHello" "\x1b[33mWORLD" -w 200 -n world
 ```
 
 # useful examples
