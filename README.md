@@ -1,6 +1,8 @@
 # upscaler-cli
 upscale images from your terminal
 
+using [upscalerjs](https://upscalerjs.com/)
+
 # install
 ```bash
 npm install upscaler-cli
