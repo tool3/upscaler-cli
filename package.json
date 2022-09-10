@@ -1,33 +1,30 @@
 {
-  "name": "shellfie-cli",
-  "version": "1.0.3",
-  "description": "create beautiful terminal screenshots",
+  "name": "upscaler-cli",
+  "version": "1.0.0",
+  "description": "upscale png images from your terminal",
   "main": "index.js",
   "scripts": {
     "test": "echo 'set your tests here'"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tool3/shellfie-cli.git"
+    "url": "git+https://github.com/tool3/upscaler-cli.git"
   },
   "keywords": [
-    "terminal",
-    "xterm",
-    "screenshot",
-    "ansi",
+    "upscale",
+    "upscaler",
     "cli"
   ],
   "author": "Tal Hayut",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tool3/shellfie-cli/issues"
-  },
   "bin": {
-    "shellfie": "index.js"
+    "upscaler": "index.js"
   },
-  "homepage": "https://github.com/tool3/shellfie-cli#readme",
+  "homepage": "https://github.com/tool3/upscaler-cli#readme",
   "dependencies": {
-    "shellfie": "^1.2.4",
+    "@tensorflow/tfjs-node": "^3.20.0",
+    "@tensorflow/tfjs-node-gpu": "^3.20.0",
+    "upscaler": "^1.0.0-beta.6",
     "yargs": "^16.1.1"
   },
   "devDependencies": {
