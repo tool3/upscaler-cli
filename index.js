@@ -5,11 +5,8 @@ const upscale = require('./utils/upscale');
 const logo = require('./utils/logo/logo');
 
 yargs
-    .middleware(() => console.log(logo))
-  .config({
-    location: `${process.env.INIT_CWD || process.cwd()}/shellfies`
-  })
-  .command('$0 <path>', 'upscale png images by up to 4x', {}, async (argv) => {
+  .middleware(() => console.log(logo))
+  .command('$0 <path>', 'upscale png images by up to 4x', {}, async argv => {
     try {
       await upscale(argv);
     } catch (error) {
