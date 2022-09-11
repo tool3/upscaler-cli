@@ -3,18 +3,18 @@ const fs = require('fs').promises;
 const Upscaler = require('upscaler/node-gpu');
 const tf = require('@tensorflow/tfjs-node-gpu');
 const Ora = require('ora');
-const spinner = new Ora({ color: 'green', text: `\x1b[32;1mUpscaling \x1b[;2m${name}\x1b[0m\x1b[0m` });
-
-const upscaler = new Upscaler();
 
 async function upscaleImage(argv) {
   const imagePath = path.resolve(argv.path);
   const paths = imagePath.split('/');
-  const { name, fileName } = getImageName(imagePath, paths);
+  const { name, fileName, ext } = getImageName(imagePath, paths);
+  const spinner = new Ora({ color: 'green', text: `\x1b[32;1mUpscaling \x1b[;2m${name + ext}\x1b[0m\x1b[0m` });
+
+  const upscaler = new Upscaler();
 
   spinner.start();
 
-  const png = await getUpscaledImage(imagePath);
+  const png = await getUpscaledImage(upscaler, imagePath);
   const upscaledImagePath = [...paths.slice(0, paths.length - 1), fileName].join('/');
 
   await fs.writeFile(fileName, png);
@@ -25,10 +25,10 @@ function getImageName(imagePath, paths) {
   const ext = path.extname(imagePath);
   const name = paths[paths.length - 1].replace(ext, '');
   const fileName = `${name}_upscaled.png`;
-  return { name, fileName };
+  return { name, ext, fileName };
 }
 
-const getUpscaledImage = async imagePath => {
+const getUpscaledImage = async (upscaler, imagePath) => {
   const file = await fs.readFile(imagePath);
   const image = tf.node.decodeImage(file, 3);
   const tensor = await upscaler.upscale(image, {

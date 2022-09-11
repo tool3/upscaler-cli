@@ -15,5 +15,7 @@ yargs
   })
   .example('$0 image.png')
   .option('name', { alias: 'n', type: 'string', desc: 'image name' })
+  // TODO 
+  // add custom model func
   .help()
   .wrap(90).argv;
