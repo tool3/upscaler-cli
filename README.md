@@ -5,7 +5,7 @@ using [upscalerjs](https://upscalerjs.com/)
 
 # install
 ```bash
-npm install upscaler-cli
+npm install upscaler-cli -g
 ```
 
 # usage
