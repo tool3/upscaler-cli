@@ -14,7 +14,8 @@ yargs
     }
   })
   .example('$0 image.png')
-  .option('name', { alias: 'n', type: 'string', desc: 'image name' })
+  .option('name', { alias: 'n', type: 'string', desc: 'output image name' })
+  .option('output', { alias: 'o', type: 'string', desc: 'path to save image' })
   // TODO 
   // add custom model func
   .help()
