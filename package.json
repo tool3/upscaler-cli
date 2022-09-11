@@ -20,6 +20,10 @@
   "bin": {
     "upscaler": "index.js"
   },
+  "files": [
+    "utils",
+    "index"
+  ],
   "homepage": "https://github.com/tool3/upscaler-cli#readme",
   "dependencies": {
     "@tensorflow/tfjs": "^3.20.0",
