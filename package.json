@@ -22,8 +22,10 @@
   },
   "homepage": "https://github.com/tool3/upscaler-cli#readme",
   "dependencies": {
+    "@tensorflow/tfjs": "^3.20.0",
     "@tensorflow/tfjs-node": "^3.20.0",
     "@tensorflow/tfjs-node-gpu": "^3.20.0",
+    "@upscalerjs/models": "^0.9.0",
     "ora": "5.4",
     "upscaler": "^1.0.0-beta.6",
     "yargs": "^16.1.1"
