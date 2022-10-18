@@ -4,7 +4,6 @@ const Upscaler = require('upscaler/node-gpu');
 const tf = require('@tensorflow/tfjs-node-gpu');
 const Ora = require('ora');
 const GANS = require('@upscalerjs/esrgan-slim');
-console.log({GANS});
 
 async function upscaleImage(argv) {
   const inputImage = path.resolve(argv.path);
