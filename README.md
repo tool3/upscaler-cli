@@ -1,5 +1,5 @@
 # upscaler-cli
-upscale images from your terminal
+![](/utils//logo/logo.png)   
 
 using [upscalerjs](https://upscalerjs.com/)
 

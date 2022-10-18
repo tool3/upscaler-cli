@@ -3,6 +3,8 @@ const fs = require('fs').promises;
 const Upscaler = require('upscaler/node-gpu');
 const tf = require('@tensorflow/tfjs-node-gpu');
 const Ora = require('ora');
+const GANS = require('@upscalerjs/esrgan-slim');
+console.log({GANS});
 
 async function upscaleImage(argv) {
   const inputImage = path.resolve(argv.path);
@@ -10,7 +12,9 @@ async function upscaleImage(argv) {
 
   const spinner = new Ora({ color: 'green', text: `\x1b[32;1mUpscaling \x1b[;2m${name}\x1b[0m\x1b[0m` });
 
-  const upscaler = new Upscaler();
+  const upscaler = new Upscaler({
+    model: GANS
+  });
 
   spinner.start();
 
@@ -34,8 +38,10 @@ function getFileName(argv, inputImage) {
 }
 
 function getOutputName(argv, name) {
-  const customName = argv.n.includes('.') ? argv.n : `${argv.n}.png`;
-  return customName || `${name}_upscaled.png`;
+  if (argv.n) {
+    return argv.n?.includes('.') ? argv.n : `${argv.n}.png`;
+  }
+  return `${name}_upscaled.png`;
 }
 
 function getExtension(inputImage) {

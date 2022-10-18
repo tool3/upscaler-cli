@@ -1,6 +1,6 @@
 {
   "name": "upscaler-cli",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "upscale png images from your terminal",
   "main": "index.js",
   "scripts": {
@@ -27,11 +27,10 @@
   "homepage": "https://github.com/tool3/upscaler-cli#readme",
   "dependencies": {
     "@tensorflow/tfjs": "^3.20.0",
-    "@tensorflow/tfjs-node": "^3.20.0",
     "@tensorflow/tfjs-node-gpu": "^3.20.0",
     "@upscalerjs/models": "^0.9.0",
     "ora": "5.4",
-    "upscaler": "^1.0.0-beta.6",
+    "upscaler": "latest",
     "yargs": "^16.1.1"
   }
 }
