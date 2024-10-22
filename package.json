@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "test": "echo 'set your tests here'",
-    "build": "tsc"
+    "build": "tsc && cp utils/logo/logo.txt dist/utils/logo/"
   },
   "repository": {
     "type": "git",

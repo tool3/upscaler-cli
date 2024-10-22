@@ -39,5 +39,6 @@ yargs
   .example('$0 toUpscale/', 'upscale all png images in directory')
   .example('$0 alien_landscape.png -s 4x', 'upscale image by 4x')
   .example('$0 alien_landscape.png -m @upscalerjs/esrgan-medium -s 8x', 'upscale image by 8x using custom model')
+  .demandCommand(1, '')
   .help()
   .wrap(100).argv;

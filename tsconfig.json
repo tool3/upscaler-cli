@@ -9,8 +9,7 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "noImplicitAny": false,
-    "declaration": true,
     "types": ["@types/node", "long"]
   },
-  "exclude": ["examples", "shellfies", "dist", "node_modules/*", "index.test.ts"]
+  "exclude": [ "dist", "node_modules/"]
 }
