@@ -46,6 +46,7 @@ Prompt: a fantastic alien landscape
 | scale  | scale of upscale model to use | string | `-s 4x`                        |
 
 # Models
+[upscalerjs models page](https://upscalerjs.com/models/)
 
 | name                               | scale                        |
 | ---------------------------------- | ---------------------------- |
