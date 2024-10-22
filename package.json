@@ -1,10 +1,11 @@
 {
   "name": "upscaler-cli",
-  "version": "1.1.1",
+  "version": "3.0.0",
   "description": "upscale png images from your terminal",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "test": "echo 'set your tests here'"
+    "test": "echo 'set your tests here'",
+    "build": "tsc && cp src/logo/logo.txt dist/src/logo/"
   },
   "repository": {
     "type": "git",
@@ -13,24 +14,38 @@
   "keywords": [
     "upscale",
     "upscaler",
-    "cli"
+    "upscalerjs",
+    "AI",
+    "npm"
   ],
   "author": "Tal Hayut",
   "license": "MIT",
   "bin": {
-    "upscaler": "index.js"
+    "upscaler": "./dist/index.js"
   },
   "files": [
-    "utils",
-    "index"
+    "./dist"
   ],
   "homepage": "https://github.com/tool3/upscaler-cli#readme",
   "dependencies": {
-    "@tensorflow/tfjs": "^3.20.0",
-    "@tensorflow/tfjs-node-gpu": "^3.20.0",
+    "@tensorflow/tfjs": "4.11.0",
+    "@tensorflow/tfjs-node-gpu": "4.11.0",
+    "@upscalerjs/default-model": "1.0.0-beta.17",
+    "@upscalerjs/esrgan-legacy": "1.0.0-beta.14",
+    "@upscalerjs/esrgan-medium": "1.0.0-beta.13",
+    "@upscalerjs/esrgan-slim": "1.0.0-beta.12",
+    "@upscalerjs/esrgan-thick": "1.0.0-beta.16",
+    "@upscalerjs/maxim-denoising": "0.1.0",
+    "@upscalerjs/maxim-retouching": "0.1.0",
     "@upscalerjs/models": "^0.9.0",
     "ora": "5.4",
     "upscaler": "latest",
     "yargs": "^16.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.7.8",
+    "@types/yargs": "17.0.33",
+    "ts-node": "10.9.2",
+    "typescript": "5.6.3"
   }
 }
