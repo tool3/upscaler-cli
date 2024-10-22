@@ -20,14 +20,14 @@ async function upscale(argv: any) {
 
   for (const name of fileNames) {
     const { directory, upscaledName } = await getFileName(argv, name, isDir);
-    const output = await upscaleImage(inputImage, directory, upscaledName, argv);
+    const output = await upscaleImage(name, inputImage, directory, upscaledName, argv);
 
     const finish = spinOk(`📸 \x1b[32;1m${name}\x1b[0m \x1b[32mwas saved at \x1b[0;2m${output}\x1b[0m`);
     finish.succeed();
   }
 }
 
-async function upscaleImage(inputImage: string, directory: string, upscaledName: string, argv: any) {
+async function upscaleImage(name: string, inputImage: string, directory: string, upscaledName: string, argv: any) {
   const input = path.extname(inputImage) ? inputImage : `${inputImage}/${name}`;
   const output = `${directory}/${upscaledName}`;
 
