@@ -3,7 +3,7 @@
 import yargs from 'yargs';
 import upscale from './src/upscale/upscale';
 import logo from './src/logo/logo';
-import list from './src/ls/ls'
+import list from './src/list/list'
 
 yargs
   .middleware(() => console.log(logo))
