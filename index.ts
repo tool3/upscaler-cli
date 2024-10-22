@@ -27,7 +27,7 @@ yargs
     })
   .option('name', { alias: 'n', type: 'string', desc: 'output image name' })
   .option('output', { alias: 'o', type: 'string', desc: 'path to save image' })
-  .option('model', { alias: 'm', type: 'string', desc: 'model to use' })
+  .option('model', { alias: 'm', type: 'string', desc: 'model to use', default: '@upscalerjs/default-model' })
   .option('scale', { alias: 's', type: 'string', default: '2x', desc: 'scale of model to use' })
   .example('$0 ls', 'list upscale models and their supported scale')
   .example('$0 toUpscale/', 'upscale all png images in directory')

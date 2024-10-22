@@ -11,14 +11,14 @@ async function upscale(argv: any) {
   const inputImage = path.resolve(argv.path);
   const isDir = await isDirectory(inputImage)
 
-  const modelPath = await verifyModel(argv.model || '@upscalerjs/default-model');
+  const modelPath = await verifyModel(argv.model);
   const model = getModel(modelPath, argv.scale);
 
   if (isDir) {
     const files = await fs.readdir(inputImage);
     fileNames = files.filter(file => file.endsWith('.png') || file.endsWith('.jpg') || file.endsWith('.jpeg'));
   } else {
-    fileNames = [inputImage];
+    fileNames = [inputImage.split('/').pop()];
   }
 
   for (const name of fileNames) {
@@ -35,7 +35,7 @@ async function upscaleImage(model: any, name: string, inputImage: string, direct
   const output = `${directory}/${upscaledName}`;
 
   
-  const spinner = spinOk(`\x1b[32;1mUpscaling \x1b[;2m${name}\x1b[0m\x1b[0m`);
+  const spinner = spinOk(`\x1b[32;1mUpscaling \x1b[0;2m${name}\x1b[0;1m \x1b[32;1mby \x1b[0;2m${argv.scale}\x1b[0;1m \x1b[32;1musing \x1b[0;2m${argv.model}\x1b[0m\x1b[0m`);
 
   const upscaler = new Upscaler({ model });
 
