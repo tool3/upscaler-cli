@@ -6,7 +6,7 @@ const logo = require('./utils/logo/logo');
 
 yargs
   .middleware(() => console.log(logo))
-  .command('$0 <path|dir>', 'upscale png images by up to 4x', {}, async argv => {
+  .command('$0 <path|dir>', 'upscale images using AI models', {}, async argv => {
     try {
       await upscale(argv);
     } catch (error) {
@@ -40,7 +40,5 @@ yargs
   .example('$0 toUpscale/', 'upscale all png images in directory')
   .example('$0 alien_landscape.png -s 4x', 'upscale image by 4x')
   .example('$0 alien_landscape.png -m @upscalerjs/esrgan-medium -s 8x', 'upscale image by 8x using custom model')
-  // TODO 
-  // add custom model func
   .help()
   .wrap(100).argv;
