@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "test": "echo 'set your tests here'",
-    "build": "tsc && cp utils/logo/logo.txt dist/utils/logo/"
+    "build": "tsc && cp src/logo/logo.txt dist/src/logo/"
   },
   "repository": {
     "type": "git",
@@ -45,6 +45,7 @@
   "devDependencies": {
     "@types/node": "22.7.8",
     "@types/yargs": "17.0.33",
+    "ts-node": "10.9.2",
     "typescript": "5.6.3"
   }
 }

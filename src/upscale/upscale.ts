@@ -21,10 +21,14 @@ function spinErr(text: string) {
   process.exit(1);
 }
 
+async function isDirectory(inputPath: string) {
+  return await fs.stat(inputPath).then(stat => stat.isDirectory()).catch(() => false);
+}
+
 async function upscaleImage(argv: any) {
   let fileNames = [];
   const inputImage = path.resolve(argv.path);
-  const isDir = await fs.stat(inputImage).then(stat => stat.isDirectory()).catch(() => false);
+  const isDir = await isDirectory(inputImage)
 
   if (isDir) {
     const files = await fs.readdir(inputImage);
@@ -35,7 +39,7 @@ async function upscaleImage(argv: any) {
 
 
   for (const name of fileNames) {
-    const { directory, upscaledName } = await getFileName(argv, name);
+    const { directory, upscaledName } = await getFileName(argv, name, isDir);
 
     const input = path.extname(inputImage) ? inputImage : `${inputImage}/${name}`;
     const output = `${directory}/${upscaledName}`;
@@ -99,8 +103,8 @@ async function verifyModel(module: string) {
   return module;
 }
 
-async function getFileName(argv: any, inputImage: string) {
-  const outputPath = argv.o || argv.dir || process.cwd();
+async function getFileName(argv: any, inputImage: string, isDir: boolean) {
+  const outputPath = argv.o || (isDir ? argv.dir : false) || process.cwd();
   const exists = await pathExists(outputPath);
 
   if (!exists) {
