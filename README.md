@@ -5,10 +5,8 @@
 # What’s new
 
 ✅ Rewritten in TypeScript.  
-✅ All `upscalejs` [models](https://upscalerjs.com/models/) supported!  
-✅ QoF features:
-    - automatic model download.
-    - dir/file error handling
+✅ Full `upscalejs` [models](https://upscalerjs.com/models/) support!  
+✅ Scale support (`2x`, `3x`, `4x`, and `8x`!).
 
 using [upscalerjs](https://upscalerjs.com/)
 
