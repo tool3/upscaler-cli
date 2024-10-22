@@ -1,25 +1,27 @@
-const path = require('path');
-const fs = require('fs').promises;
-const Upscaler = require('upscaler/node-gpu');
-const tf = require('@tensorflow/tfjs-node-gpu');
-const Ora = require('ora');
-const { promisify } = require('util');
-const proc = require('child_process');
+// @ts-ignore
+import Upscaler from 'upscaler/node-gpu';
+import path from 'path'
+import fs from 'fs/promises';
+import { node } from '@tensorflow/tfjs-node-gpu';
+import Ora from 'ora';
+import { promisify } from 'util';
+import proc from 'child_process'
+
 const exec = promisify(proc.exec);
 
-function spinOk(text) {
-  const spinner = new Ora({ color: 'green', text });
+function spinOk(text: string) {
+  const spinner = Ora({ color: 'green', text });
   spinner.start()
   return spinner;
 }
 
-function spinErr(text) {
-  const spinner = new Ora({ color: 'red', text });
+function spinErr(text: string) {
+  const spinner = Ora({ color: 'red', text });
   spinner.fail(text)
   process.exit(1);
 }
 
-async function upscaleImage(argv) {
+async function upscaleImage(argv: any) {
   let fileNames = [];
   const inputImage = path.resolve(argv.path);
   const isDir = await fs.stat(inputImage).then(stat => stat.isDirectory()).catch(() => false);
@@ -56,11 +58,9 @@ async function upscaleImage(argv) {
     finish.succeed();
 
   }
-
-
 }
 
-function getModel(modelPath, scale) {
+function getModel(modelPath: string, scale: string) {
   const customModel = require(modelPath);
   const scaleReversed = [...scale].reverse().join("");
   if ('modelType' in customModel) {
@@ -72,7 +72,7 @@ function getModel(modelPath, scale) {
   }
 }
 
-async function pathExists(path) {
+async function pathExists(path: string) {
   try {
     await fs.access(path);
     return true;
@@ -81,7 +81,7 @@ async function pathExists(path) {
   }
 }
 
-async function verifyModel(module) {
+async function verifyModel(module: string) {
   const modulePath = path.join(__dirname, '../node_modules', module);
   const exists = await pathExists(modulePath);
 
@@ -98,7 +98,7 @@ async function verifyModel(module) {
   return module;
 }
 
-async function getFileName(argv, inputImage) {
+async function getFileName(argv: any, inputImage: string) {
   const outputPath = argv.o || process.cwd();
   const exists = await pathExists(outputPath);
 
@@ -117,7 +117,7 @@ async function getFileName(argv, inputImage) {
   return { name, upscaledName, directory, ext };
 }
 
-async function getOutputName(dir, name, ext) {
+async function getOutputName(dir: string, name: string, ext: string) {
   const fileName = `${name}_upscaled`;
   const fullPath = path.resolve(path.join(dir, fileName + ext));
   const fileExists = await pathExists(fullPath);
@@ -129,7 +129,7 @@ async function getOutputName(dir, name, ext) {
   return `${fileName}${ext}`
 }
 
-function getExtension(inputImage) {
+function getExtension(inputImage: string) {
   const ext = path.extname(inputImage);
 
   if (!ext) {
@@ -139,18 +139,18 @@ function getExtension(inputImage) {
   return ext;
 }
 
-async function getUpscaledImage(upscaler, imagePath) {
+async function getUpscaledImage(upscaler: any, imagePath: string) {
   const file = await fs.readFile(imagePath);
-  const image = tf.node.decodeImage(file, 3);
+  const image = node.decodeImage(file, 3);
   const tensor = await upscaler.upscale(image, {
     output: 'tensor',
     patchSize: 64,
     padding: 6
   });
   image.dispose();
-  const upscaledTensor = await tf.node.encodePng(tensor);
+  const upscaledTensor = await node.encodePng(tensor);
   tensor.dispose();
   return upscaledTensor;
 };
 
-module.exports = upscaleImage;
+export default upscaleImage;

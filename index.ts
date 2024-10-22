@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-const yargs = require('yargs');
-const upscale = require('./utils/upscale');
-const logo = require('./utils/logo/logo');
+import yargs from 'yargs';
+import upscale from './utils/upscale';
+import logo from './utils/logo/logo';
 
 yargs
   .middleware(() => console.log(logo))
@@ -31,7 +31,6 @@ yargs
       `
     )
   })
-  .example('$0 image.png')
   .option('name', { alias: 'n', type: 'string', desc: 'output image name' })
   .option('output', { alias: 'o', type: 'string', desc: 'path to save image' })
   .option('model', { alias: 'm', type: 'string', desc: 'model to use' })
