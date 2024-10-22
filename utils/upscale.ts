@@ -41,19 +41,16 @@ async function upscaleImage(argv: any) {
     const output = `${directory}/${upscaledName}`;
 
     const modelPath = await verifyModel(argv.model || '@upscalerjs/default-model');
-
     const model = getModel(modelPath, argv.scale);
-
     const spinner = spinOk(`\x1b[32;1mUpscaling \x1b[;2m${name}\x1b[0m\x1b[0m`);
 
-    const upscaler = new Upscaler({
-      model
-    });
+    const upscaler = new Upscaler({ model });
 
     const upscaled = await getUpscaledImage(upscaler, input);
     await fs.writeFile(output, upscaled);
-
     spinner.succeed();
+
+
     const finish = spinOk(`📸 \x1b[32;1m${name}\x1b[0m \x1b[32mwas saved at \x1b[0;2m${output}\x1b[0m`);
     finish.succeed();
 
@@ -63,6 +60,7 @@ async function upscaleImage(argv: any) {
 function getModel(modelPath: string, scale: string) {
   const customModel = require(modelPath);
   const scaleReversed = [...scale].reverse().join("");
+
   if ('modelType' in customModel) {
     return customModel;
   } else if (scaleReversed in customModel || scale in customModel) {
@@ -70,6 +68,7 @@ function getModel(modelPath: string, scale: string) {
   } else {
     spinErr(`\x1b[31mModel does not support scale: ${scale}\x1b[0m`);
   }
+
 }
 
 async function pathExists(path: string) {
@@ -87,11 +86,13 @@ async function verifyModel(module: string) {
 
   if (!exists) {
     const spinner = spinOk(`\x1b[32;1mDownloading model \x1b[;2m\x1b[0m\x1b[0m`);
+
     try {
       await exec(`npm install ${module}`);
     } catch (error) {
       spinErr(`Failed to download model: ${error.message}`);
     }
+
     spinner.succeed(`\x1b[32mModel downloaded successfully\x1b[0;2m\x1b[0m`);
   }
 
@@ -121,11 +122,13 @@ async function getOutputName(dir: string, name: string, ext: string) {
   const fileName = `${name}_upscaled`;
   const fullPath = path.resolve(path.join(dir, fileName + ext));
   const fileExists = await pathExists(fullPath);
+
   if (fileExists) {
     const files = await fs.readdir(path.resolve(path.join(dir)));
     const numFiles = files.filter(file => file.includes(fileName)).length;
     return `${fileName}_${numFiles}${ext}`
   }
+
   return `${fileName}${ext}`
 }
 
@@ -142,14 +145,18 @@ function getExtension(inputImage: string) {
 async function getUpscaledImage(upscaler: any, imagePath: string) {
   const file = await fs.readFile(imagePath);
   const image = node.decodeImage(file, 3);
+
   const tensor = await upscaler.upscale(image, {
     output: 'tensor',
     patchSize: 64,
     padding: 6
   });
-  image.dispose();
+
   const upscaledTensor = await node.encodePng(tensor);
+
+  image.dispose();
   tensor.dispose();
+
   return upscaledTensor;
 };
 
