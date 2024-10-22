@@ -99,7 +99,7 @@ async function verifyModel(module: string) {
 }
 
 async function getFileName(argv: any, inputImage: string) {
-  const outputPath = argv.o || process.cwd();
+  const outputPath = argv.o || argv.dir || process.cwd();
   const exists = await pathExists(outputPath);
 
   if (!exists) {
