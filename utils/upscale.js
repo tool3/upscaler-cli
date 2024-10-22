@@ -21,6 +21,9 @@ function spinErr(text) {
 
 async function upscaleImage(argv) {
   const inputImage = path.resolve(argv.path);
+  const isDir = await fs.stat(inputImage).then(stat => stat.isDirectory()).catch(() => false);
+
+
   const { name, output } = await getFileName(argv, inputImage);
 
   const modelPath = await verifyModel(argv.model || '@upscalerjs/default-model');
@@ -28,15 +31,18 @@ async function upscaleImage(argv) {
   const model = getModel(modelPath, argv.scale);
 
   const spinner = spinOk(`\x1b[32;1mUpscaling \x1b[;2m${name}\x1b[0m\x1b[0m`);
+  
 
   const upscaler = new Upscaler({
     model
   });
 
   const upscaled = await getUpscaledImage(upscaler, inputImage);
-
   await fs.writeFile(output, upscaled);
-  spinner.succeed(`📸 \x1b[32;1m${name}\x1b[0m \x1b[32mwas saved at \x1b[0;2m${output}\x1b[0m`);
+  
+  spinner.succeed();
+  const finish = spinOk(`📸 \x1b[32;1m${name}\x1b[0m \x1b[32mwas saved at \x1b[0;2m${output}\x1b[0m`);
+  finish.succeed();
 }
 
 function getModel(modelPath, scale) {
