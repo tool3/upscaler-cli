@@ -1,4 +1,5 @@
 # upscaler-cli
+
 ![](/src//logo/logo.png)
 
 # What’s new
@@ -43,3 +44,19 @@ Prompt: a fantastic alien landscape
 | model  | upscale model to use          | string | `-m @upscalerjs/esrgan-medium` |
 | output | output directory              | string | `-o upscales/`                 |
 | scale  | scale of upscale model to use | string | `-s 4x`                        |
+
+# Models
+
+| name                               | scale                        |
+| ---------------------------------- | ---------------------------- |
+| @upscalerjs/esrgan-slim            | 2x 3x 4x 8x                  |
+| @upscalerjs/esrgan-medium          | 2x 3x 4x 8x                  |
+| @upscalerjs/esrgan-thick           | 2x 3x 4x 8x                  |
+| @upscalerjs/esrgan-legacy          | div2kx2 div2kx3 div2kx4 gans |
+| @upscalerjs/maxim-deblurring       | 64 256                       |
+| @upscalerjs/maxim-dehazing-indoor  | 64 256                       |
+| @upscalerjs/maxim-dehazing-outdoor | 64 256                       |
+| @upscalerjs/maxim-denoising        | 64 256                       |
+| @upscalerjs/maxim-deraining        | 64 256                       |
+| @upscalerjs/maxim-enhancement      | 64 256                       |
+| @upscalerjs/maxim-retouching       | 64 256                       |

@@ -44,7 +44,7 @@ async function upscaleImage(inputImage: string, directory: string, upscaledName:
   return output;
 }
 
-async function getUpscaledImage(upscaler: any, imagePath: string) {
+async function getUpscaledImage(upscaler: Upscaler, imagePath: string) {
   const file = await fs.readFile(imagePath);
   const image = node.decodeImage(file, 3);
 

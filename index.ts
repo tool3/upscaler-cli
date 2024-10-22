@@ -23,7 +23,7 @@ yargs
     'list upscale models and their supported scale',
     {},
     async _argv => {
-      console.log(list)
+      list();
     })
   .option('name', { alias: 'n', type: 'string', desc: 'output image name' })
   .option('output', { alias: 'o', type: 'string', desc: 'path to save image' })

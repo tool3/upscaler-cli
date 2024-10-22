@@ -1,6 +1,5 @@
 import path from 'path';
-import { exec } from 'child_process';
-import { pathExists, spinErr, spinOk } from './utils';
+import { exec, pathExists, spinErr, spinOk } from './utils';
 
 async function verifyModel(module: string) {
     const modulePath = path.join(__dirname, '../node_modules', module);
@@ -20,6 +19,7 @@ async function verifyModel(module: string) {
 
     return module;
 }
+
 function getModel(modelPath: string, scale: string) {
     const customModel = require(modelPath);
     const scaleReversed = [...scale].reverse().join("");
