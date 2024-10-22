@@ -1,6 +1,5 @@
 # upscaler-cli
-
-![](/utils//logo/logo.png)
+![](/src//logo/logo.png)
 
 # What’s new
 
@@ -10,13 +9,13 @@
 
 using [upscalerjs](https://upscalerjs.com/)
 
-# install
+# Install
 
 ```bash
 npm install upscaler-cli -g
 ```
 
-# usage
+# Usage
 
 ```bash
 upscaler <img or dir> [options]
@@ -29,6 +28,13 @@ upscaler align_landscape.png -m @upscalerjs/esrgan-medium -s 4x -o upscales/
 ![](/alien_landscape_upscaled.png)
 Artist: stable-diffusion  
 Prompt: a fantastic alien landscape
+
+# Commands
+
+| name     | description                                                             | example                        |
+| -------- | ----------------------------------------------------------------------- | ------------------------------ |
+| <path>   | path of directory/image to upscale                                      | `upscaler alien_landscape.png` |
+| list, ls | list all supported upscale models and their respective supported scales | `upscaler ls`, `upscaler ls`   |
 
 # Options
 
