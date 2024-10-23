@@ -9,7 +9,7 @@ async function verifyModel(module: string) {
         const spinner = spinOk(`\x1b[32;1mDownloading model \x1b[;2m\x1b[0m\x1b[0m`);
 
         try {
-            await exec(`npm install ${module}`);
+            await exec(`npm install ${module}`, { cwd: path.join(__dirname, '../../') });
         } catch (error) {
             spinErr(`Failed to download model: ${error.message}`);
         }
