@@ -30,6 +30,10 @@ upscaler align_landscape.png -m @upscalerjs/esrgan-medium -s 4x -o upscales/
 Artist: stable-diffusion  
 Prompt: a fantastic alien landscape
 
+> [!TIP]
+> If upscaling appears "stuck" - it's probably maxing out the nodejs memory limit trying to upscale the image.  
+> Try a lower scale, or a different model to see if it improves result time.
+
 # Commands
 
 | name     | description                                                             | example                        |
@@ -46,6 +50,7 @@ Prompt: a fantastic alien landscape
 | scale  | scale of upscale model to use | string | `-s 4x`                        |
 
 # Models
+
 [upscalerjs models page](https://upscalerjs.com/models/)
 
 | name                               | scale                        |
