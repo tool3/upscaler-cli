@@ -27,7 +27,7 @@ function getModel(modelPath: string, scale: string) {
     if ('modelType' in customModel) {
         return customModel;
     } else if (scaleReversed in customModel || scale in customModel) {
-        return customModel[scale]
+        return customModel[scaleReversed] || customModel[scale]
     } else {
         spinErr(`\x1b[31mModel does not support scale: ${scale}\x1b[0m`);
     }
