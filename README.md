@@ -36,10 +36,10 @@ Prompt: a fantastic alien landscape
 
 # Commands
 
-| name     | description                                                             | example                        |
-| -------- | ----------------------------------------------------------------------- | ------------------------------ |
-| <path>   | path of directory/image to upscale                                      | `upscaler alien_landscape.png` |
-| list, ls | list all supported upscale models and their respective supported scales | `upscaler ls`, `upscaler ls`   |
+| name        | description                                                             | example                        |
+| ----------- | ----------------------------------------------------------------------- | ------------------------------ |
+| path/to/img | path to image/directory to upscale                                      | `upscaler alien_landscape.png` |
+| list, ls    | list all supported upscale models and their respective supported scales | `upscaler ls`, `upscaler ls`   |
 
 # Options
 
