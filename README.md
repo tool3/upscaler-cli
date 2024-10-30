@@ -66,3 +66,19 @@ Prompt: a fantastic alien landscape
 | @upscalerjs/maxim-deraining        | 64 256                       |
 | @upscalerjs/maxim-enhancement      | 64 256                       |
 | @upscalerjs/maxim-retouching       | 64 256                       |
+
+# Examples
+
+upscale an image using the default upscaling model
+
+```bash
+upscaler image.png
+```
+
+| example                                        | description                                                                                                                 |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `upscaler ls`                                  | list all available upscale models and their supported scales                                                                |
+| `upscaler image.png`                           | upscale image using the default model and save to current directory                                                         |
+| `upscaler image.png -o ./upscales`             | upscale image using the default model and save to `./upscaels` (directory `./upscales` will be created if it doesn't exist) |
+| `upscaler image.png -s 4x`                     | upscale image using the default model with a scale of `4` and save to current directory                               |
+| `upscaleer -m @upscalerjs/esrgan-medium -s 8x` | upscale image using `@upscalerjs/esrgan-medium` model with a scale of `8` and save to current directory                     |
